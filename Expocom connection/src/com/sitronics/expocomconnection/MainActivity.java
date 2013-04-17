@@ -103,7 +103,7 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 		_mapInfo.put(tabInfo.tag, tabInfo);
 
 		addTab(_tabHost, _tabHost.newTabSpec("page2").setIndicator("Программа"),
-			   (tabInfo = new TabInfo("page2", OrganizationFragment.class, args)));
+			   (tabInfo = new TabInfo("page2", ScheduleFragment.class, args)));
 		_mapInfo.put(tabInfo.tag, tabInfo);
 		
 		addTab(_tabHost, _tabHost.newTabSpec("page3").setIndicator("Представители"),
@@ -117,7 +117,7 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 	{
 		List<Fragment> fragments = new Vector<Fragment>();
 		fragments.add(new DescriptionFragment());
-		fragments.add(new OrganizationFragment());
+		fragments.add(new ScheduleFragment());
 		fragments.add(new ParticipantsFragment());
 		_pagerAdapter = new PagerAdapter(getFragmentManager(), fragments);
 		_viewPager = (ViewPager)findViewById(R.id.viewPager);

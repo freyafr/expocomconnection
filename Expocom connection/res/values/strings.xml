@@ -3,6 +3,6 @@
 
     <string name="app_name">Связь Экспоком</string>
     <string name="menu_settings">Settings</string>
-	<string name="description">Этот текст будет заменен
-		на какое-то описание!</string>
+	<string name="description">Этот текст будет заменен на какое-то описание!</string>
+	<string name="event_date_format">%1$s - %2$s</string>
 </resources>
