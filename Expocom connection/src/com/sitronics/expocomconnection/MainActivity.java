@@ -11,10 +11,10 @@ import android.support.v4.view.*;
 import java.util.*;
 import android.view.*;
 import android.content.*;
-import android.app.*;
-//import android.support.v4.app.*;
+import android.os.*;
+import android.support.v4.app.*;
 
-public class MainActivity extends Activity
+public class MainActivity extends FragmentActivity
 implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener 
 {
 
@@ -23,17 +23,20 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 	private HashMap<String,TabInfo> _mapInfo = new HashMap<String,TabInfo>();
 
 	private PagerAdapter _pagerAdapter;
+	private static Handler handler;
+
 	private class TabInfo
 	{
 		private String tag;
 		private Bundle args;
-		private Class<?> clazz;
 
-		TabInfo(String tag, Class<?> clazz, Bundle args)
+		TabInfo(String tag, 
+
+		Bundle args)
 		{
 			this.tag = tag;
 			this.args = args;
-			this.clazz = clazz;
+			
 		}
 	}
 
@@ -61,21 +64,44 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		ActionBar bar = getActionBar();
-		bar.setDisplayShowTitleEnabled(false);
+	//	requestWindowFeature(Window.FEATURE_NO_TITLE);
+	//	requestWindowFeature(Window.FEATURE_LEFT_ICON);
+	//	getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+	//	WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
+		handler = new Handler();
+	
 		setContentView(R.layout.activity_main);
 		initTabHost(savedInstanceState);
-		
+
 		if (savedInstanceState != null) 
 		{
-            _tabHost.setCurrentTabByTag(savedInstanceState.getString("tab")); //set the tab as per the saved state
-        }
+			_tabHost.setCurrentTabByTag(savedInstanceState.getString("tab")); //set the tab as per the saved state
+		}
 
 		initViewPager(savedInstanceState);
 
 	}
 
-	
+	public Activity getActivity()
+	{
+		return this;
+	}
+
+	public void handleError(final String errorMesage)
+	{
+		handler.post(new Runnable() {
+				public void run()
+				{
+					Toast.makeText(getActivity(), errorMesage,
+								   Toast.LENGTH_SHORT).show();
+
+				}
+			});
+
+	}
+
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
@@ -83,34 +109,41 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
-	
+
 
 	/** (non-Javadoc)
      * @see android.support.v4.app.FragmentActivity#onSaveInstanceState(android.os.Bundle)
      */
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(Bundle outState)
+	{
         outState.putString("tab", _tabHost.getCurrentTabTag()); //save the tab selected
         super.onSaveInstanceState(outState);
     }
 
 	private void initTabHost(Bundle args)
 	{
-		_tabHost = (TabHost)findViewById(android.R.id.tabhost);
-		_tabHost.setup();
-		MainActivity.TabInfo tabInfo = null;
-		addTab(_tabHost, _tabHost.newTabSpec("page1").setIndicator("Описание"),
-			   (tabInfo = new TabInfo("page1", DescriptionFragment.class, args)));
-		_mapInfo.put(tabInfo.tag, tabInfo);
+		try
+		{
+			_tabHost = (TabHost)findViewById(android.R.id.tabhost);
+			_tabHost.setup();
+			MainActivity.TabInfo tabInfo = null;
+			addTab(_tabHost, _tabHost.newTabSpec("page1").setIndicator("Описание"),
+				   (tabInfo = new TabInfo("page1", args)));
+			_mapInfo.put(tabInfo.tag, tabInfo);
 
-		addTab(_tabHost, _tabHost.newTabSpec("page2").setIndicator("Программа"),
-			   (tabInfo = new TabInfo("page2", OrganizationFragment.class, args)));
-		_mapInfo.put(tabInfo.tag, tabInfo);
-		
-		addTab(_tabHost, _tabHost.newTabSpec("page3").setIndicator("Представители"),
-			   (tabInfo = new TabInfo("page3", ParticipantsFragment.class, args)));
-		_mapInfo.put(tabInfo.tag, tabInfo);
-		_tabHost.setOnTabChangedListener(this);
+			addTab(_tabHost, _tabHost.newTabSpec("page2").setIndicator("Программа"),
+				   (tabInfo = new TabInfo("page2", args)));
+			_mapInfo.put(tabInfo.tag, tabInfo);
 
+			addTab(_tabHost, _tabHost.newTabSpec("page3").setIndicator("Представители"),
+				   (tabInfo = new TabInfo("page3", args)));
+			_mapInfo.put(tabInfo.tag, tabInfo);
+			_tabHost.setOnTabChangedListener(this);
+		}
+		catch (Exception ex)
+		{
+			handleError(ex.toString());
+		}
 	}
 
 	private void initViewPager(Bundle args)
@@ -119,7 +152,7 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 		fragments.add(new DescriptionFragment());
 		fragments.add(new OrganizationFragment());
 		fragments.add(new ParticipantsFragment());
-		_pagerAdapter = new PagerAdapter(getFragmentManager(), fragments);
+		_pagerAdapter = new PagerAdapter(getSupportFragmentManager(), fragments);
 		_viewPager = (ViewPager)findViewById(R.id.viewPager);
 		_viewPager.setAdapter(_pagerAdapter);
 		_viewPager.setOnPageChangeListener(this);
@@ -170,9 +203,9 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 	 */
 	public void onTabChanged(String tag)
 	{
-		TabInfo newTab = _mapInfo.get(tag);
 		int pos = _tabHost.getCurrentTab();
-		_viewPager.setCurrentItem(pos,true);
+		if (_viewPager != null)
+			_viewPager.setCurrentItem(pos, true);
     }
 
 }

@@ -4,22 +4,12 @@
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
-    <style name="AppBaseTheme" parent="android:Theme.Holo">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
-         
-        
-        
+    <style name="AppBaseTheme" parent="android:Theme.NoTitleBar">
         <item name="android:tabWidgetStyle">@style/LightTabWidget</item>
-		<item name="android:actionBarStyle">@style/YellowActionBar</item>
+		<item name="android:windowNoTitle">true</item>
     </style>
 	
-	<style name="YellowActionBar" parent="android:style/Widget.ActionBar">
-		<item name ="android:background">#fff</item>
-	</style>
+	
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
@@ -29,11 +19,18 @@
 	    <!-- set textColor to red, so you can verify that it applied. -->
 	   <item name="android:textColor">#fff</item>
 	   <item name="android:capitalize">characters</item>
-	   <item name="android:textSize">9pt</item>
+	   <item name="android:textSize">7pt</item>
 	</style>
 	<style name="AppBaseThemeLight" parent="android:style/Widget.TabWidget">
         <!-- API 14 theme customizations can go here. -->
-		<item name="android:textColor">#000</item>
+		<item name="android:foreground">#fff</item>
+		<item name="android:capitalize">characters</item>
+		<item name="android:textSize">9pt</item>
+		<item name="android:background">#fff</item>
 
     </style>
+	
+	<style name="splashScreenTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+		<item name="android:windowBackground">@drawable/splash</item>
+	</style>
 </resources>

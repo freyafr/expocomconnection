@@ -1,9 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
-   <!-- <item
-        android:id="@+id/menu_settings"
-        
-        android:showAsAction="ifRoom"
-        />-->
+    <item  android:id="@+id/action_item" 
+		android:icon="@drawable/ic_launcher"     
+		android:title="fufkfg43j"
+		android:showAsAction="ifRoom"/>
+	<item     android:id="@+id/action_view_item"
+		android:icon="@drawable/ic_launcher"
+		android:title="1e0fkv0"
+		android:showAsAction="ifRoom|collapseActionView"
+	/>
+	<item     android:id="@+id/action_provider_item"
+		android:title="Share"     
+		android:showAsAction="always" />
+
 
 </menu>

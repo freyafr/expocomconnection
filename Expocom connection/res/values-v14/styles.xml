@@ -8,10 +8,17 @@
     <style name="AppBaseTheme" parent="android:Theme.Holo">
         <!-- API 14 theme customizations can go here. -->
 		<item name="android:actionBarStyle">@style/YellowActionBar</item>
+		
+		
     </style>
-	
+	<style name="noTitleText">
+		<item name="android:textSize">0pt</item>
+		<item name ="android:textColor">#fcaf17</item>
+	</style>
 	<style name="YellowActionBar" parent="android:style/Widget.ActionBar">
 		<item name ="android:background">#fcaf17</item>
+		<item name="android:titleTextStyle">@style/noTitleText</item>
+		<item name="android:subtitleTextStyle">@style/noTitleText</item>
 	</style>
 
 	<style name="AppBaseThemeLight">
@@ -22,5 +29,6 @@
 		<item name="android:background">#fff</item>
 		
     </style>
+	
 	
 </resources>
