@@ -127,17 +127,21 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 			_tabHost = (TabHost)findViewById(android.R.id.tabhost);
 			_tabHost.setup();
 			MainActivity.TabInfo tabInfo = null;
-			addTab(_tabHost, _tabHost.newTabSpec("page1").setIndicator("Описание"),
+			addTab(_tabHost, _tabHost.newTabSpec("page1").setIndicator(getString(R.string.description)),
 				   (tabInfo = new TabInfo("page1", args)));
 			_mapInfo.put(tabInfo.tag, tabInfo);
 
-			addTab(_tabHost, _tabHost.newTabSpec("page2").setIndicator("Программа"),
+			addTab(_tabHost, _tabHost.newTabSpec("page2").setIndicator(getString(R.string.lottery)),
 				   (tabInfo = new TabInfo("page2", args)));
 			_mapInfo.put(tabInfo.tag, tabInfo);
 
-			addTab(_tabHost, _tabHost.newTabSpec("page3").setIndicator("Представители"),
+			addTab(_tabHost, _tabHost.newTabSpec("page3").setIndicator(getString(R.string.schedule)),
 				   (tabInfo = new TabInfo("page3", args)));
 			_mapInfo.put(tabInfo.tag, tabInfo);
+			
+			addTab(_tabHost, _tabHost.newTabSpec("page4").setIndicator(getString(R.string.solutions)),
+					   (tabInfo = new TabInfo("page4", args)));
+				_mapInfo.put(tabInfo.tag, tabInfo);
 			_tabHost.setOnTabChangedListener(this);
 		}
 		catch (Exception ex)
@@ -151,6 +155,7 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 		List<Fragment> fragments = new Vector<Fragment>();
 		fragments.add(new DescriptionFragment());
 		fragments.add(new OrganizationFragment());
+		fragments.add(new ParticipantsFragment());
 		fragments.add(new ParticipantsFragment());
 		_pagerAdapter = new PagerAdapter(getSupportFragmentManager(), fragments);
 		_viewPager = (ViewPager)findViewById(R.id.viewPager);
