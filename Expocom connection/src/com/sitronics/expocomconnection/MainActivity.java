@@ -2,7 +2,6 @@ package com.sitronics.expocomconnection;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
 import android.widget.TabHost;
 import android.widget.TabHost.TabContentFactory;
 import android.widget.TabHost.OnTabChangeListener;
@@ -13,8 +12,12 @@ import android.view.*;
 import android.content.*;
 import android.os.*;
 import android.support.v4.app.*;
+import com.actionbarsherlock.app.*;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.MenuInflater;
 
-public class MainActivity extends FragmentActivity
+public class MainActivity extends SherlockFragmentActivity
 implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener 
 {
 
@@ -70,6 +73,7 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 	//	WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		
 		handler = new Handler();
+		
 	
 		setContentView(R.layout.activity_main);
 		initTabHost(savedInstanceState);
@@ -80,6 +84,8 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 		}
 
 		initViewPager(savedInstanceState);
+		
+		getSupportActionBar().setIcon(R.drawable.logo);
 
 	}
 
@@ -106,7 +112,7 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_main, menu);
+		getSupportMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
 
@@ -153,10 +159,10 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 	private void initViewPager(Bundle args)
 	{
 		List<Fragment> fragments = new Vector<Fragment>();
-		fragments.add(new DescriptionFragment());
+		fragments.add(new DescriptionFragment());		
+		fragments.add(new ParticipantsFragment());
+		fragments.add(new ScheduleFragment());
 		fragments.add(new OrganizationFragment());
-		fragments.add(new ParticipantsFragment());
-		fragments.add(new ParticipantsFragment());
 		_pagerAdapter = new PagerAdapter(getSupportFragmentManager(), fragments);
 		_viewPager = (ViewPager)findViewById(R.id.viewPager);
 		_viewPager.setAdapter(_pagerAdapter);

@@ -4,10 +4,17 @@
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
-    <style name="AppBaseTheme" parent="android:Theme.NoTitleBar">
-        <item name="android:tabWidgetStyle">@style/LightTabWidget</item>
-		<item name="android:windowNoTitle">true</item>
+    <style name="AppBaseTheme" parent="Theme.Sherlock">
+       <!--   <item name="android:tabWidgetStyle">@style/LightTabWidget</item>-->
+       <item name="actionBarStyle">@style/YellowActionBar</item>
+		<!--  <item name="android:windowNoTitle">true</item>-->
     </style>
+    
+    <style name="YellowActionBar" parent="Theme.Sherlock">
+		<item name ="background">#fcaf17</item>								   
+	  	<item name="titleTextStyle">@style/noTitleText</item>
+		<item name="subtitleTextStyle">@style/noTitleText</item>
+	</style>
 	
 	
 
@@ -30,7 +37,7 @@
 
     </style>
 	
-	<style name="splashScreenTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+	<style name="splashScreenTheme" parent="Theme.Sherlock">
 		<item name="android:windowBackground">@drawable/splash</item>
 	</style>
 </resources>

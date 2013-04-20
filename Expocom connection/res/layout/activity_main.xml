@@ -26,20 +26,18 @@
             </TabWidget>
 
             <FrameLayout
-			android:id="@android:id/tabcontent"
+                android:id="@android:id/tabcontent"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-				android:layout_weight="0"
-				>
+                android:layout_weight="0" >
             </FrameLayout>
-			<android.support.v4.view.ViewPager 
-			
-				
-				android:id="@+id/viewPager"
-				style="@style/AppBaseThemeLight"
-				android:layout_width="fill_parent"
-				android:layout_height="0dp"
-				android:layout_weight="1"/>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
+                style="@style/AppBaseThemeLight"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
         </LinearLayout>
     </TabHost>
 
