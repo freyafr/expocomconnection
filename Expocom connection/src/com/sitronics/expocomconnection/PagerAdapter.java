@@ -1,9 +1,8 @@
 package com.sitronics.expocomconnection;
-//import android.support.v13.app.FragmentPagerAdapter;
 
 import java.util.*;
-//import android.app.*;
 import android.support.v4.app.*;
+//import android.support.v4.app.*;
 
 public class PagerAdapter extends FragmentPagerAdapter
 {

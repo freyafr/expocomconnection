@@ -84,6 +84,8 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 		}
 
 		initViewPager(savedInstanceState);
+		getSupportActionBar().setDisplayShowTitleEnabled(false);
+		getSupportActionBar().setDisplayUseLogoEnabled(true);
 		
 		getSupportActionBar().setIcon(R.drawable.logo);
 
