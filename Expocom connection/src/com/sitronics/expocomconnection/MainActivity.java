@@ -162,7 +162,7 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 	{
 		List<Fragment> fragments = new Vector<Fragment>();
 		fragments.add(new DescriptionFragment());		
-		fragments.add(new ParticipantsFragment());
+		fragments.add(new LotteryFragment());
 		fragments.add(new ScheduleFragment());
 		fragments.add(new OrganizationFragment());
 		_pagerAdapter = new PagerAdapter(getSupportFragmentManager(), fragments);

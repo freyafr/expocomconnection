@@ -18,7 +18,7 @@
 				android:layout_marginBottom="5dp"
 				android:adjustViewBounds="true"
 				android:scaleType="centerCrop"
-				android:src="@drawable/home_image" />
+				android:src="@drawable/lottery_image" />
 
 
             <TextView
@@ -30,10 +30,10 @@
                 android:paddingRight="15dp"
                 android:paddingTop="5dp"
                 android:scrollbars="vertical"
-                android:text="@string/description_text"
+                android:text="@string/lottery_text"
                 android:textColor="#000" />
 
-			
+
 		</LinearLayout>
 	</ScrollView>
 </RelativeLayout>
