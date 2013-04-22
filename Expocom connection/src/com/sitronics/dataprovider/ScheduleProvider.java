@@ -10,20 +10,20 @@ final public class ScheduleProvider {
 	public static ArrayList<Day> getSchedule(){
 		return new ArrayList<Day>(){{
 			add(new Day(){{
-				title = "13 МАЯ - ПОНЕДЕЛЬНИК";
+				title = "13 РњР°СЏ - РџРћРќР•Р”Р•Р›Р¬РќРРљ";
 				events = new ArrayList<Event>(){{
 					add(new Event(){{
-						title = "Начало работы выставки";
+						title = "РќР°С‡Р°Р»Рѕ СЂР°Р±РѕС‚С‹ РІС‹СЃС‚Р°РІРєРё";
 						start = "10:00";
 						end = null;
 					}});
 					add(new Event(){{
-						title = "Что то там";
+						title = "Р§С‚Рѕ С‚Рѕ С‚Р°Рј";
 						start = "10:00";
 						end = "12:00";
 					}});
 					add(new Event(){{
-						title = "Что то там 1";
+						title = "Р§С‚Рѕ С‚Рѕ С‚Р°Рј 1";
 						start = "10:00";
 						end = "18:00";
 					}});
@@ -31,20 +31,20 @@ final public class ScheduleProvider {
 			}});
 
 			this.add(new Day(){{
-				title = "14 МАЯ - ВТОРНИК";
+				title = "14 РњРђРЇ - Р’РўРћР РќРРљ";
 				events = new ArrayList<Event>(){{
 					add(new Event(){{
-						title = "Что то там 3";
+						title = "Р§С‚Рѕ С‚Рѕ С‚Р°Рј 3";
 						start = "10:00";
 						end = null;
 					}});
 					add(new Event(){{
-						title = "Что то там 4";
+						title = "Р§С‚Рѕ С‚Рѕ С‚Р°Рј 4";
 						start = "10:00";
 						end = "12:00";
 					}});
 					add(new Event(){{
-						title = "Что то там 5";
+						title = "Р§С‚Рѕ С‚Рѕ С‚Р°Рј 5";
 						start = "10:00";
 						end = "18:00";
 					}});
