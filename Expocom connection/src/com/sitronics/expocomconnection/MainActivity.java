@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.widget.TabHost;
 import android.widget.TabHost.TabContentFactory;
 import android.widget.TabHost.OnTabChangeListener;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v4.view.*;
 import java.util.*;
@@ -16,6 +17,7 @@ import com.actionbarsherlock.app.*;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.MenuInflater;
+import com.sitronics.data.Solution;
 
 public class MainActivity extends SherlockFragmentActivity
 implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener 
@@ -164,7 +166,7 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 		fragments.add(new DescriptionFragment());		
 		fragments.add(new LotteryFragment());
 		fragments.add(new ScheduleFragment());
-		fragments.add(new OrganizationFragment());
+		fragments.add(new SolutionFragment());
 		_pagerAdapter = new PagerAdapter(getSupportFragmentManager(), fragments);
 		_viewPager = (ViewPager)findViewById(R.id.viewPager);
 		_viewPager.setAdapter(_pagerAdapter);
@@ -186,8 +188,7 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 	public void onPageScrolled(int position, float positionOffset,
 							   int positionOffsetPixels)
 	{
-		// TODO Auto-generated method stub
-
+				
 	}
 
 	/* (non-Javadoc)
@@ -220,5 +221,19 @@ implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 		if (_viewPager != null)
 			_viewPager.setCurrentItem(pos, true);
     }
+	
+	public void onShowDescription(View view)
+	{
+		SolutionFragment fragment = (SolutionFragment)_pagerAdapter.getItem(3);
+		TextView code=(TextView)((View)view.getParent()).findViewById(R.id.solution_code);
+		int position = Integer.parseInt(code.getText().toString());
+		Solution solution = (Solution)fragment.getListAdapter().getItem(position);
+		Intent descrIntent = new Intent(this, SolutionDetailsFragment.class);
+		descrIntent.putExtra("name", solution.getName());
+		descrIntent.putExtra("description", solution.getDescription());
+		descrIntent.putExtra("contactName", solution.getContactName());
+		descrIntent.putExtra("contactEmail", solution.getContactName());
+		startActivity(descrIntent);
+	}
 
 }

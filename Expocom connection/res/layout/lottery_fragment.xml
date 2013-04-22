@@ -1,30 +1,34 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+
     <ScrollView
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-	>
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent" >
 
 		<LinearLayout
-			style="@style/AppBaseThemeLight"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:orientation="vertical" >
-			<ImageView
-				android:id="@+id/image_photo"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="5dp"
-				android:adjustViewBounds="true"
-				android:scaleType="centerCrop"
-				android:src="@drawable/lottery_image" />
+		    style="@style/AppBaseThemeLight"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:orientation="vertical" >
 
+			<ImageView
+			    android:id="@+id/image_photo"
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:layout_gravity="fill_vertical"
+			    android:layout_marginBottom="5dp"
+			    android:layout_weight="0"
+			    android:adjustViewBounds="false"
+			    android:cropToPadding="false"
+			    android:scaleType="centerCrop"
+			    android:src="@drawable/lottery_image" />
 
             <TextView
                 android:id="@+id/image_description"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:paddingBottom="5dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
@@ -32,7 +36,6 @@
                 android:scrollbars="vertical"
                 android:text="@string/lottery_text"
                 android:textColor="#000" />
-
 
 		</LinearLayout>
 	</ScrollView>

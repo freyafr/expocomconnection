@@ -25,4 +25,24 @@ public class Solution
 	{
 		return _name;
 	}
+	
+	public String getShortDescription()
+	{
+		return _shortDescription;
+	}
+	
+	public String getDescription()
+	{
+		return _longDescription;
+	}
+	
+	public String getContactName()
+	{
+		return _contactName;
+	}
+	
+	public String getContactEmail()
+	{
+		return _contactEmail;
+	}
 }

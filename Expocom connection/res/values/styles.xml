@@ -30,7 +30,7 @@
 	</style>
 	<style name="AppBaseThemeLight" parent="android:style/Widget.TabWidget">
         <!-- API 14 theme customizations can go here. -->
-		<item name="android:foreground">#fff</item>
+		<item name="android:foreground">#000</item>
 		<item name="android:capitalize">characters</item>
 		<item name="android:textSize">9pt</item>
 		<item name="android:background">#fff</item>
@@ -39,6 +39,11 @@
 	
 	<style name="splashScreenTheme" parent="Theme.Sherlock">
 		<item name="android:windowBackground">@drawable/splash</item>
-		<item name="android:windowActionBar">false</item>
+		<item name="windowActionBar">false</item>
+	</style>
+	
+	<style name="MainLightTheme" parent="Theme.Sherlock.Light">
+		<item name="windowActionBar">true</item>		
+		
 	</style>
 </resources>
