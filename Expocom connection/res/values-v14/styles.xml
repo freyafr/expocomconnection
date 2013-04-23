@@ -22,10 +22,7 @@
 	</style>
 
 	<style name="AppBaseThemeLight">
-        <!-- API 14 theme customizations can go here. -->
-        		
-		<item name="android:background">#fff</item>
-		
+		<item name="android:background">#fff</item>		
     </style>
 	
 	
