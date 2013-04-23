@@ -19,8 +19,7 @@ import android.content.*;
 
 
 
-public class SolutionFragment extends ListFragment 
-implements AdapterView.OnItemClickListener
+public class SolutionFragment extends ListFragment
 {
 
 	public void onItemClick(AdapterView<?> p1, View view, int position, long p4)
@@ -42,7 +41,7 @@ implements AdapterView.OnItemClickListener
 		super.onCreate(savedInstanceState);
 
 		mAdapter = new ArrayAdapter<Solution>(getActivity(),
-											  R.layout.solution_item, SolutionProvider.getSolutions()) 
+											  R.layout.solution_item, SolutionProvider.getSolutions(getActivity())) 
 		{
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) 
@@ -75,8 +74,14 @@ implements AdapterView.OnItemClickListener
 	public void onStart()
 	{
 		super.onStart();
-		setListAdapter(mAdapter);
-		getListView().setOnItemClickListener(this);
-		getListView().setClickable(true);
+		setListAdapter(mAdapter);				
 	}
+	
+	@Override
+	public void onListItemClick(ListView l, View v, int position, long id) 
+	{
+		super.onListItemClick(l, v, position, id);
+		onItemClick(l,v,position,id);
+	}
+	
 }
