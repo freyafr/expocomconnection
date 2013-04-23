@@ -19,7 +19,8 @@ import com.actionbarsherlock.view.Menu;
 import com.sitronics.data.Solution;
 
 public class MainActivity extends SherlockFragmentActivity implements
-		TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
+TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
+{
 
 	private TabHost _tabHost;
 	private ViewPager _viewPager;
@@ -28,27 +29,32 @@ public class MainActivity extends SherlockFragmentActivity implements
 	private PagerAdapter _pagerAdapter;
 	private static Handler handler;
 
-	private class TabInfo {
+	private class TabInfo
+	{
 		private String tag;
 		private Bundle args;
 
 		TabInfo(String tag,
 
-		Bundle args) {
+				Bundle args)
+		{
 			this.tag = tag;
 			this.args = args;
 
 		}
 	}
 
-	class TabFactory implements TabContentFactory {
+	class TabFactory implements TabContentFactory
+	{
 		private Context _context;
 
-		public TabFactory(Context context) {
+		public TabFactory(Context context)
+		{
 			_context = context;
 		}
 
-		public View createTabContent(String p1) {
+		public View createTabContent(String p1)
+		{
 			// TODO: Implement this method
 			View view = new View(_context);
 			view.setMinimumHeight(0);
@@ -59,7 +65,8 @@ public class MainActivity extends SherlockFragmentActivity implements
 	}
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		// requestWindowFeature(Window.FEATURE_NO_TITLE);
 		// requestWindowFeature(Window.FEATURE_LEFT_ICON);
@@ -71,15 +78,16 @@ public class MainActivity extends SherlockFragmentActivity implements
 		setContentView(R.layout.activity_main);
 		initTabHost(savedInstanceState);
 
-		if (savedInstanceState != null) {
+		if (savedInstanceState != null)
+		{
 			_tabHost.setCurrentTabByTag(savedInstanceState.getString("tab")); // set
-																				// the
-																				// tab
-																				// as
-																				// per
-																				// the
-																				// saved
-																				// state
+			// the
+			// tab
+			// as
+			// per
+			// the
+			// saved
+			// state
 		}
 
 		initViewPager(savedInstanceState);
@@ -89,30 +97,35 @@ public class MainActivity extends SherlockFragmentActivity implements
 		getSupportActionBar().setIcon(R.drawable.logo);
 
 		TabWidget tabWidget = (TabWidget) findViewById(id.tabs);
-		for (int i = 0; i < tabWidget.getChildCount(); i++) {
+		for (int i = 0; i < tabWidget.getChildCount(); i++)
+		{
 			View view = tabWidget.getChildAt(i);
 			view.setFocusableInTouchMode(true);
 		}
 
 	}
 
-	public Activity getActivity() {
+	public Activity getActivity()
+	{
 		return this;
 	}
 
-	public void handleError(final String errorMesage) {
+	public void handleError(final String errorMesage)
+	{
 		handler.post(new Runnable() {
-			public void run() {
-				Toast.makeText(getActivity(), errorMesage, Toast.LENGTH_SHORT)
+				public void run()
+				{
+					Toast.makeText(getActivity(), errorMesage, Toast.LENGTH_SHORT)
 						.show();
 
-			}
-		});
+				}
+			});
 
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getSupportMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
@@ -123,47 +136,53 @@ public class MainActivity extends SherlockFragmentActivity implements
 	 * 
 	 * @see android.support.v4.app.FragmentActivity#onSaveInstanceState(android.os.Bundle)
 	 */
-	protected void onSaveInstanceState(Bundle outState) {
+	protected void onSaveInstanceState(Bundle outState)
+	{
 		outState.putString("tab", _tabHost.getCurrentTabTag()); // save the tab
-																// selected
+		// selected
 		super.onSaveInstanceState(outState);
 	}
 
-	private void initTabHost(Bundle args) {
-		try {
+	private void initTabHost(Bundle args)
+	{
+		try
+		{
 			_tabHost = (TabHost) findViewById(android.R.id.tabhost);
 			_tabHost.setup();
 			MainActivity.TabInfo tabInfo = null;
 			addTab(_tabHost,
-					_tabHost.newTabSpec("page1").setIndicator(
-							getString(R.string.description)),
-					(tabInfo = new TabInfo("page1", args)));
+				   _tabHost.newTabSpec("page1").setIndicator(
+					   getString(R.string.description)),
+				   (tabInfo = new TabInfo("page1", args)));
 			_mapInfo.put(tabInfo.tag, tabInfo);
 
 			addTab(_tabHost,
-					_tabHost.newTabSpec("page2").setIndicator(
-							getString(R.string.lottery)),
-					(tabInfo = new TabInfo("page2", args)));
+				   _tabHost.newTabSpec("page2").setIndicator(
+					   getString(R.string.lottery)),
+				   (tabInfo = new TabInfo("page2", args)));
 			_mapInfo.put(tabInfo.tag, tabInfo);
 
 			addTab(_tabHost,
-					_tabHost.newTabSpec("page3").setIndicator(
-							getString(R.string.schedule)),
-					(tabInfo = new TabInfo("page3", args)));
+				   _tabHost.newTabSpec("page3").setIndicator(
+					   getString(R.string.schedule)),
+				   (tabInfo = new TabInfo("page3", args)));
 			_mapInfo.put(tabInfo.tag, tabInfo);
 
 			addTab(_tabHost,
-					_tabHost.newTabSpec("page4").setIndicator(
-							getString(R.string.solutions)),
-					(tabInfo = new TabInfo("page4", args)));
+				   _tabHost.newTabSpec("page4").setIndicator(
+					   getString(R.string.solutions)),
+				   (tabInfo = new TabInfo("page4", args)));
 			_mapInfo.put(tabInfo.tag, tabInfo);
 			_tabHost.setOnTabChangedListener(this);
-		} catch (Exception ex) {
+		}
+		catch (Exception ex)
+		{
 			handleError(ex.toString());
 		}
 	}
 
-	private void initViewPager(Bundle args) {
+	private void initViewPager(Bundle args)
+	{
 		List<Fragment> fragments = new Vector<Fragment>();
 		fragments.add(new DescriptionFragment());
 		fragments.add(new LotteryFragment());
@@ -176,7 +195,8 @@ public class MainActivity extends SherlockFragmentActivity implements
 	}
 
 	private void addTab(TabHost tabhost, TabHost.TabSpec tabSpec,
-			TabInfo tabInfo) {
+						TabInfo tabInfo)
+	{
 		tabSpec.setContent(this.new TabFactory(this));
 		tabhost.addTab(tabSpec);
 	}
@@ -190,7 +210,8 @@ public class MainActivity extends SherlockFragmentActivity implements
 	 */
 	@Override
 	public void onPageScrolled(int position, float positionOffset,
-			int positionOffsetPixels) {
+							   int positionOffsetPixels)
+	{
 
 	}
 
@@ -202,7 +223,8 @@ public class MainActivity extends SherlockFragmentActivity implements
 	 * (int)
 	 */
 	@Override
-	public void onPageSelected(int position) {
+	public void onPageSelected(int position)
+	{
 		// TODO Auto-generated method stub
 		_tabHost.setCurrentTab(position);
 	}
@@ -214,7 +236,8 @@ public class MainActivity extends SherlockFragmentActivity implements
 	 * onPageScrollStateChanged(int)
 	 */
 	@Override
-	public void onPageScrollStateChanged(int state) {
+	public void onPageScrollStateChanged(int state)
+	{
 		// TODO Auto-generated method stub
 
 	}
@@ -224,25 +247,20 @@ public class MainActivity extends SherlockFragmentActivity implements
 	 * 
 	 * @see android.widget.TabHost.OnTabChangeListener#onTabChanged(java.lang.String)
 	 */
-	public void onTabChanged(String tag) {
+	public void onTabChanged(String tag)
+	{
 		int pos = _tabHost.getCurrentTab();
 		if (_viewPager != null)
 			_viewPager.setCurrentItem(pos, true);
 	}
 
-	public void onShowDescription(View view) {
+	public void onShowDescription(View view)
+	{
 		SolutionFragment fragment = (SolutionFragment) _pagerAdapter.getItem(3);
 		TextView code = (TextView) ((View) view.getParent())
-				.findViewById(R.id.solution_code);
+			.findViewById(R.id.solution_code);
 		int position = Integer.parseInt(code.getText().toString());
-		Solution solution = (Solution) fragment.getListAdapter().getItem(
-				position);
-		Intent descrIntent = new Intent(this, SolutionDetailsFragment.class);
-		descrIntent.putExtra("name", solution.getName());
-		descrIntent.putExtra("description", solution.getDescription());
-		descrIntent.putExtra("contactName", solution.getContactName());
-		descrIntent.putExtra("contactEmail", solution.getContactName());
-		startActivity(descrIntent);
+		fragment.onItemClick(null, (View) view.getParent(), position, 0);
 	}
-
+	
 }
