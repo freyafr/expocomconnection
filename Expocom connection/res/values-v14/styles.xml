@@ -22,12 +22,7 @@
 	</style>
 
 	<style name="AppBaseThemeLight">
-        <!-- API 14 theme customizations can go here. -->
-		<item name="android:foreground">#fff</item>
-		<item name="android:capitalize">characters</item>
-		<item name="android:textSize">9pt</item>
-		<item name="android:background">#fff</item>
-		
+		<item name="android:background">#fff</item>		
     </style>
 	
 	

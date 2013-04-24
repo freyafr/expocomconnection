@@ -31,7 +31,8 @@
         <activity
             android:name="com.sitronics.expocomconnection.SolutionDetailsFragment"
             android:label="@string/app_name"
-            android:theme="@style/MainLightTheme" >
+            android:logo="@drawable/logo"
+            android:theme="@style/AppBaseTheme" >
         </activity>
     </application>
 

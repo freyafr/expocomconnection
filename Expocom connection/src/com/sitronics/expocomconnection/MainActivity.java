@@ -140,11 +140,6 @@ public class MainActivity extends SherlockFragmentActivity implements
 					(tabInfo = new TabInfo("page1", args)));
 			_mapInfo.put(tabInfo.tag, tabInfo);
 
-			addTab(_tabHost,
-					_tabHost.newTabSpec("page2").setIndicator(
-							getString(R.string.lottery)),
-					(tabInfo = new TabInfo("page2", args)));
-			_mapInfo.put(tabInfo.tag, tabInfo);
 
 			addTab(_tabHost,
 					_tabHost.newTabSpec("page3").setIndicator(
@@ -171,7 +166,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 	private void initViewPager(Bundle args) {
 		List<Fragment> fragments = new Vector<Fragment>();
 		fragments.add(new DescriptionFragment());
-		fragments.add(new LotteryFragment());
+		//fragments.add(new LotteryFragment());
 		fragments.add(new ScheduleFragment());
 		fragments.add(new SolutionFragment());
 		fragments.add(new MapFragment());
@@ -241,14 +236,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 		TextView code = (TextView) ((View) view.getParent())
 				.findViewById(R.id.solution_code);
 		int position = Integer.parseInt(code.getText().toString());
-		Solution solution = (Solution) fragment.getListAdapter().getItem(
-				position);
-		Intent descrIntent = new Intent(this, SolutionDetailsFragment.class);
-		descrIntent.putExtra("name", solution.getName());
-		descrIntent.putExtra("description", solution.getDescription());
-		descrIntent.putExtra("contactName", solution.getContactName());
-		descrIntent.putExtra("contactEmail", solution.getContactName());
-		startActivity(descrIntent);
+		fragment.onItemClick(null, (View) view.getParent(), position, 0);
 	}
 
 }
