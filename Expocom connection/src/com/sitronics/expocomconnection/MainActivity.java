@@ -156,6 +156,11 @@ public class MainActivity extends SherlockFragmentActivity implements
 					_tabHost.newTabSpec("page4").setIndicator(
 							getString(R.string.solutions)),
 					(tabInfo = new TabInfo("page4", args)));
+			
+			addTab(_tabHost,
+					_tabHost.newTabSpec("page5").setIndicator(
+							getString(R.string.map)),
+					(tabInfo = new TabInfo("page5", args)));
 			_mapInfo.put(tabInfo.tag, tabInfo);
 			_tabHost.setOnTabChangedListener(this);
 		} catch (Exception ex) {
@@ -169,6 +174,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 		fragments.add(new LotteryFragment());
 		fragments.add(new ScheduleFragment());
 		fragments.add(new SolutionFragment());
+		fragments.add(new MapFragment());
 		_pagerAdapter = new PagerAdapter(getSupportFragmentManager(), fragments);
 		_viewPager = (ViewPager) findViewById(R.id.viewPager);
 		_viewPager.setAdapter(_pagerAdapter);
