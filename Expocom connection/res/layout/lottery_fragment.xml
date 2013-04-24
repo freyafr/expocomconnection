@@ -58,7 +58,7 @@
                         android:layout_weight="0"
                         android:background="#fff"
                         android:padding="2dp"
-                        android:text="До 100 баллов" />
+                        android:text="До 200 баллов" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -70,7 +70,7 @@
                         android:layout_weight="1"
                         android:background="#fff"
                         android:padding="2dp"
-                        android:text="Вувузелла" />
+                        android:text="Вувузелла\nАнтистрессовые игрушки" />
                 </TableRow>
 
                 <TableRow
@@ -89,7 +89,7 @@
                         android:layout_weight="0"
                         android:background="#fff"
                         android:padding="2dp"
-                        android:text="100-150" />
+                        android:text="200-350" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -100,7 +100,7 @@
                         android:layout_weight="1"
                         android:background="#fff"
                         android:padding="2dp"
-                        android:text="Антистрессовые игрушки" />
+                        android:text="Свисток\nФанатский шарф" />
                 </TableRow>
 
                 <TableRow
@@ -119,7 +119,7 @@
                         android:layout_weight="0"
                         android:background="#fff"
                         android:padding="2dp"
-                        android:text="150-200" />
+                        android:text="350-500" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
                         android:layout_weight="1"
                         android:background="#fff"
                         android:padding="2dp"
-                        android:text="Свисток" />
+                        android:text="Форма футболиста\nФутбольный мяч с фирменной символикой" />
                 </TableRow>
 
                 <TableRow
@@ -149,7 +149,7 @@
                         android:layout_weight="0"
                         android:background="#fff"
                         android:padding="2dp"
-                        android:text="200-250" />
+                        android:text="500-600" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -160,7 +160,7 @@
                         android:layout_weight="1"
                         android:background="#fff"
                         android:padding="2dp"
-                        android:text="Фанатский шарф" />
+                        android:text="Собрание дисков со всеми футбольными играми FIFA" />
                 </TableRow>
             </TableLayout>
         </LinearLayout>

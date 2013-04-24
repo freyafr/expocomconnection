@@ -155,12 +155,7 @@ TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 					   getString(R.string.description)),
 				   (tabInfo = new TabInfo("page1", args)));
 			_mapInfo.put(tabInfo.tag, tabInfo);
-
-			addTab(_tabHost,
-				   _tabHost.newTabSpec("page2").setIndicator(
-					   getString(R.string.lottery)),
-				   (tabInfo = new TabInfo("page2", args)));
-			_mapInfo.put(tabInfo.tag, tabInfo);
+		
 
 			addTab(_tabHost,
 				   _tabHost.newTabSpec("page3").setIndicator(
@@ -185,7 +180,7 @@ TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
 	{
 		List<Fragment> fragments = new Vector<Fragment>();
 		fragments.add(new DescriptionFragment());
-		fragments.add(new LotteryFragment());
+		//fragments.add(new LotteryFragment());
 		fragments.add(new ScheduleFragment());
 		fragments.add(new SolutionFragment());
 		_pagerAdapter = new PagerAdapter(getSupportFragmentManager(), fragments);
