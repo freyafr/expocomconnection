@@ -8,48 +8,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"        
         android:orientation="vertical" >
+        
+        <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"                    
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/info" />
 
         <TextView
             android:id="@+id/solution_name"
             android:layout_width="match_parent"
-            android:layout_height="0dip"            
-            android:layout_marginTop="15dp"
+            android:layout_height="0dip"
             android:layout_weight="1"
             android:paddingBottom="5dp"
             android:paddingLeft="25dp"
             android:paddingRight="20dp"
             android:paddingTop="5dp"
-            android:textColor="@color/title_color"
-            android:textSize="22sp" />
+            android:background="#C4C4C4"
+            android:textColor="#000"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/solution_descr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
+            android:layout_marginTop="10dp"     
             android:layout_marginBottom="20dp"            
             android:paddingLeft="25dp"
             android:paddingRight="35dp"
-            android:textColor="@color/text_color" />
-
-        <TextView
-            android:id="@+id/solution_c_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:paddingLeft="25dp"
-            android:paddingRight="20dp"
-            android:text="Контактное лицо: "
-            android:textColor="@color/text_color" />
-
-        <TextView
-            android:id="@+id/solution_contact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"            
-            android:layout_marginBottom="5dp"
-            android:paddingLeft="25dp"
-            android:paddingRight="20dp"
-            android:textColor="@color/text_color" />
+            android:textColor="#000" />
+                
     </LinearLayout>
 
 </ScrollView>

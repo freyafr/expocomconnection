@@ -3,6 +3,7 @@ package com.sitronics.expocomconnection;
 import com.sitronics.data.Day;
 import com.sitronics.data.Event;
 import com.sitronics.data.Solution;
+import com.sitronics.data.SolutionGroup;
 import com.sitronics.dataprovider.ScheduleProvider;
 import com.sitronics.dataprovider.SolutionProvider;
 
@@ -11,58 +12,66 @@ import android.support.v4.app.*;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.*;
 import android.content.*;
 
+public class SolutionFragment extends ListFragment {
 
-
-public class SolutionFragment extends ListFragment
-{
-
-	public void onItemClick(AdapterView<?> p1, View view, int position, long p4)
-	{
-		Solution solution = (Solution) getListAdapter().getItem(
-			position);
-		Intent descrIntent = new Intent(getActivity(), SolutionDetailsFragment.class);
+	public void onItemClick(AdapterView<?> p1, View view, int position, int parentPosition, long p4) {
+		SolutionGroup solutionGroup = (SolutionGroup) getListAdapter().getItem(parentPosition);
+		Solution solution = solutionGroup.getSolutions().get(position);
+		Intent descrIntent = new Intent(getActivity(),
+				SolutionDetailsFragment.class);
 		descrIntent.putExtra("name", solution.getName());
 		descrIntent.putExtra("description", solution.getDescription());
-		descrIntent.putExtra("contactName", solution.getContactName());
-		descrIntent.putExtra("contactEmail", solution.getContactName());
+
 		startActivity(descrIntent);
 	}
 
-	private ArrayAdapter<Solution> mAdapter;
+	private ArrayAdapter<SolutionGroup> mAdapter;
 
-	public void onCreate(Bundle savedInstanceState)
-	{
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		mAdapter = new ArrayAdapter<Solution>(getActivity(),
-											  R.layout.solution_item, SolutionProvider.getSolutions(getActivity())) 
-		{
+		mAdapter = new ArrayAdapter<SolutionGroup>(getActivity(),
+				R.layout.solution_group_item,
+				SolutionProvider.getSolutions(getActivity())) {
 			@Override
-			public View getView(int position, View convertView, ViewGroup parent) 
-			{
-				final Solution solution = getItem(position);
+			public View getView(int position, View convertView, ViewGroup parent) {
+				final SolutionGroup group = getItem(position);
 
-				final View solutionView = getActivity().getLayoutInflater().inflate(
-					R.layout.solution_item, null);
+				final View solutionView = getActivity().getLayoutInflater()
+						.inflate(R.layout.solution_group_item, null);
 
 				final TextView solutionNameView = (TextView) solutionView
-					.findViewById(R.id.solution_name);
-				solutionNameView.setText(solution.getName());
+						.findViewById(R.id.group_item_title);
+				solutionNameView.setText(group.getName());
 
-				final TextView solutionShortDescription = (TextView) solutionView
-					.findViewById(R.id.solution_short_descr);
+				final LinearLayout linearLayout = (LinearLayout) solutionView
+						.findViewById(R.id.solution_list_items);
 
-				solutionShortDescription.setText(solution.getShortDescription());
+				int localPosition = 0;
+				for (Solution solution : group.getSolutions()) {
+					View solutionItemView = LayoutInflater.from(getContext())
+							.inflate(R.layout.solution_item, null);
 
-				final TextView idView = (TextView) solutionView
-					.findViewById(R.id.solution_code);
-				idView.setText(new Integer(position).toString());
+					final TextView parentCode = (TextView) solutionItemView
+							.findViewById(R.id.solution_parent_code);
+
+					parentCode.setText(Integer.valueOf(position).toString());
+
+					final TextView code = (TextView) solutionItemView
+							.findViewById(R.id.solution_code);
+
+					code.setText(Integer.valueOf(localPosition).toString());
+
+					final TextView name = (TextView) solutionItemView
+							.findViewById(R.id.solution_name);
+
+					name.setText(solution.getName());
+					linearLayout.addView(solutionItemView);
+					localPosition++;
+				}
 
 				return solutionView;
 			}
@@ -71,17 +80,15 @@ public class SolutionFragment extends ListFragment
 	}
 
 	@Override
-	public void onStart()
-	{
+	public void onStart() {
 		super.onStart();
-		setListAdapter(mAdapter);				
+		setListAdapter(mAdapter);
 	}
-	
+
 	@Override
-	public void onListItemClick(ListView l, View v, int position, long id) 
-	{
+	public void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		onItemClick(l,v,position,id);
+		//onItemClick(l, v, position, id);
 	}
-	
+
 }

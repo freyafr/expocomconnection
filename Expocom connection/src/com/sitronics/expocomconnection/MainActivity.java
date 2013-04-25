@@ -61,10 +61,15 @@ public class MainActivity extends SherlockFragmentActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// requestWindowFeature(Window.FEATURE_NO_TITLE);
-		// requestWindowFeature(Window.FEATURE_LEFT_ICON);
-		// getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-		// WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
+		getWindow().setFlags(
+				WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+
+		getSupportActionBar().setDisplayShowTitleEnabled(false);
+		getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+		getSupportActionBar().setIcon(R.drawable.logo);
 
 		handler = new Handler();
 
@@ -83,10 +88,6 @@ public class MainActivity extends SherlockFragmentActivity implements
 		}
 
 		initViewPager(savedInstanceState);
-		getSupportActionBar().setDisplayShowTitleEnabled(false);
-		getSupportActionBar().setDisplayUseLogoEnabled(true);
-
-		getSupportActionBar().setIcon(R.drawable.logo);
 
 		TabWidget tabWidget = (TabWidget) findViewById(id.tabs);
 		for (int i = 0; i < tabWidget.getChildCount(); i++) {
@@ -140,22 +141,21 @@ public class MainActivity extends SherlockFragmentActivity implements
 					(tabInfo = new TabInfo("page1", args)));
 			_mapInfo.put(tabInfo.tag, tabInfo);
 
-
-			addTab(_tabHost,
-					_tabHost.newTabSpec("page3").setIndicator(
-							getString(R.string.schedule)),
-					(tabInfo = new TabInfo("page3", args)));
-			_mapInfo.put(tabInfo.tag, tabInfo);
+			/*
+			 * addTab(_tabHost, _tabHost.newTabSpec("page3").setIndicator(
+			 * getString(R.string.schedule)), (tabInfo = new TabInfo("page3",
+			 * args))); _mapInfo.put(tabInfo.tag, tabInfo);
+			 */
 
 			addTab(_tabHost,
 					_tabHost.newTabSpec("page4").setIndicator(
 							getString(R.string.solutions)),
 					(tabInfo = new TabInfo("page4", args)));
-			
+
 			addTab(_tabHost,
 					_tabHost.newTabSpec("page5").setIndicator(
-							getString(R.string.map)),
-					(tabInfo = new TabInfo("page5", args)));
+							getString(R.string.map)), (tabInfo = new TabInfo(
+							"page5", args)));
 			_mapInfo.put(tabInfo.tag, tabInfo);
 			_tabHost.setOnTabChangedListener(this);
 		} catch (Exception ex) {
@@ -166,8 +166,8 @@ public class MainActivity extends SherlockFragmentActivity implements
 	private void initViewPager(Bundle args) {
 		List<Fragment> fragments = new Vector<Fragment>();
 		fragments.add(new DescriptionFragment());
-		//fragments.add(new LotteryFragment());
-		fragments.add(new ScheduleFragment());
+		// fragments.add(new LotteryFragment());
+		// fragments.add(new ScheduleFragment());
 		fragments.add(new SolutionFragment());
 		fragments.add(new MapFragment());
 		_pagerAdapter = new PagerAdapter(getSupportFragmentManager(), fragments);
@@ -232,11 +232,15 @@ public class MainActivity extends SherlockFragmentActivity implements
 	}
 
 	public void onShowDescription(View view) {
-		SolutionFragment fragment = (SolutionFragment) _pagerAdapter.getItem(3);
+		SolutionFragment fragment = (SolutionFragment) _pagerAdapter.getItem(1);
+		TextView parentCode = (TextView) ((View) view.getParent())
+				.findViewById(R.id.solution_parent_code);
 		TextView code = (TextView) ((View) view.getParent())
 				.findViewById(R.id.solution_code);
 		int position = Integer.parseInt(code.getText().toString());
-		fragment.onItemClick(null, (View) view.getParent(), position, 0);
+		int parentPosition = Integer.parseInt(parentCode.getText().toString());
+		
+		fragment.onItemClick(null, (View) view.getParent(), position,parentPosition, 0);
 	}
 
 }
