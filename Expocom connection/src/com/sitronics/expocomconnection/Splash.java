@@ -16,8 +16,12 @@ public class Splash extends FragmentActivity
     public void onCreate(Bundle icicle)
 	{
         super.onCreate(icicle);
+		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.splash_screen);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+							  WindowManager.LayoutParams.FLAG_FULLSCREEN);
+							  
+		setContentView(R.layout.splash_screen);
 		
         /* New Handler to start the Menu-Activity 
          * and close this Splash-Screen after some seconds.*/

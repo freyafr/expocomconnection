@@ -19,6 +19,7 @@ public class MapFragment extends Fragment {
 			public void onClick(View v) {
 				Intent descrIntent = new Intent(getActivity(),
 						MapDetailsFragment.class);
+				descrIntent.putExtra("image_source", R.drawable.map);
 				startActivity(descrIntent);
 			}
 		});
@@ -28,6 +29,7 @@ public class MapFragment extends Fragment {
 			public void onClick(View v) {
 				Intent descrIntent = new Intent(getActivity(),
 						MapDetailsFragment.class);
+				descrIntent.putExtra("image_source", R.drawable.map2);
 				startActivity(descrIntent);
 			}
 		});
