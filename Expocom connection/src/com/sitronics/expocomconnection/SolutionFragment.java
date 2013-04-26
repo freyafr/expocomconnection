@@ -25,6 +25,7 @@ public class SolutionFragment extends Fragment implements
 				SolutionDetailsFragment.class);
 		descrIntent.putExtra("name", solution.getName());
 		descrIntent.putExtra("description", solution.getDescription());
+		descrIntent.putExtra("image", solution.getImage());
 
 		startActivity(descrIntent);
 	}

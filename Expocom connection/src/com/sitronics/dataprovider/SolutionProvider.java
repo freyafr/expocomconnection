@@ -21,18 +21,23 @@ final public class SolutionProvider {
 							{
 								add(new Solution(
 										"Мониторинг строительства объектов",
-										context.getString(R.string.s1)));
+										context.getString(R.string.s1),
+										R.drawable.info1));
 								add(new Solution(
 										"Контроль и анализ проектных затрат",
-										context.getString(R.string.s2)));
+										context.getString(R.string.s2),
+										R.drawable.info2));
 								add(new Solution(
 										"Инженерная и телекоммуникационная инфраструктура",
-										context.getString(R.string.s3)));
+										context.getString(R.string.s3),
+										R.drawable.info));
 								add(new Solution("Управление энергозатратами",
-										context.getString(R.string.s4)));
+										context.getString(R.string.s4),
+										R.drawable.info));
 								add(new Solution(
 										"Мониторинг грузовой и специальной техники",
-										context.getString(R.string.s5)));
+										context.getString(R.string.s5),
+										R.drawable.info));
 							}
 
 						}));
@@ -41,16 +46,20 @@ final public class SolutionProvider {
 						new ArrayList<Solution>() {
 							{
 								add(new Solution("\"Система  112\"", context
-										.getString(R.string.s6)));
+										.getString(R.string.s6),
+										R.drawable.info));
 								add(new Solution(
 										"Биометрический контроль доступа",
-										context.getString(R.string.s7)));
+										context.getString(R.string.s7),
+										R.drawable.info));
 								add(new Solution(
 										"Пространственное моделирование событий",
-										context.getString(R.string.s8)));
+										context.getString(R.string.s8),
+										R.drawable.info));
 								add(new Solution(
 										"Управление процессами и персоналом ",
-										context.getString(R.string.s9)));
+										context.getString(R.string.s9),
+										R.drawable.info));
 							}
 
 						}));
@@ -59,22 +68,28 @@ final public class SolutionProvider {
 						new ArrayList<Solution>() {
 							{
 								add(new Solution("Ncloud", context
-										.getString(R.string.s10)));
+										.getString(R.string.s10),
+										R.drawable.info));
 								add(new Solution(
 										"Универсальная карта участника",
-										context.getString(R.string.s11)));
+										context.getString(R.string.s11),
+										R.drawable.info));
 								add(new Solution(
 										"Портал общественной безопасности",
-										context.getString(R.string.s12)));
+										context.getString(R.string.s12),
+										R.drawable.info));
 								add(new Solution(
 										"Система анализа статистических данных",
-										context.getString(R.string.s13)));
+										context.getString(R.string.s13),
+										R.drawable.info));
 								add(new Solution(
 										"Сервисы облачной видеоаналитики",
-										context.getString(R.string.s14)));
+										context.getString(R.string.s14),
+										R.drawable.info));
 								add(new Solution(
 										"Удаленный мониторинг автопарка",
-										context.getString(R.string.s15)));
+										context.getString(R.string.s15),
+										R.drawable.info));
 							}
 
 						}));
