@@ -5,6 +5,12 @@
     android:orientation="vertical"
     android:paddingLeft="25dp"
     android:paddingRight="25dp" >
+	
+	<TextView
+		android:id="@+id/solution_parent_code"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:visibility="gone" />
 
     <TextView
         android:id="@+id/group_item_title"
@@ -24,7 +30,7 @@
         android:layout_height="2dp"
         android:background="@color/text_color" />
 
-    <LinearLayout
+    <ListView
         android:id="@+id/solution_list_items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

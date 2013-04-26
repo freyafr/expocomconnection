@@ -233,7 +233,8 @@ public class MainActivity extends SherlockFragmentActivity implements
 
 	public void onShowDescription(View view) {
 		SolutionFragment fragment = (SolutionFragment) _pagerAdapter.getItem(1);
-		TextView parentCode = (TextView) ((View) view.getParent())
+		TextView parentCode = (TextView) ((View) view.getParent()
+		.getParent().getParent().getParent())
 				.findViewById(R.id.solution_parent_code);
 		TextView code = (TextView) ((View) view.getParent())
 				.findViewById(R.id.solution_code);
