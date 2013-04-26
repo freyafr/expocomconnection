@@ -16,47 +16,69 @@ final public class SolutionProvider {
 		return new ArrayList<SolutionGroup>() {
 			{
 				add(new SolutionGroup(
-						"Введение и эксплуатация социальных и спротивных объектов",
+						"Возведение и эксплуатация социальных и спортивных объектов",
 						new ArrayList<Solution>() {
 							{
 								add(new Solution(
-										"Система анализа больших объемов данных Big Data",
+										"Мониторинг строительства объектов",
 										context.getString(R.string.s1)));
 								add(new Solution(
-										"Система конвергентного биллинга и управления услугами – FORIS",
+										"Контроль и анализ проектных затрат",
 										context.getString(R.string.s2)));
+								add(new Solution(
+										"Инженерная и телекоммуникационная инфраструктура",
+										context.getString(R.string.s3)));
+								add(new Solution("Управление энергозатратами",
+										context.getString(R.string.s4)));
+								add(new Solution(
+										"Мониторинг грузовой и специальной техники",
+										context.getString(R.string.s5)));
 							}
 
 						}));
 				add(new SolutionGroup(
-						"yhyВведение и эксплуатация социальных и спротивных объектов3334",
+						"Обеспечение безопасности и координация работ",
 						new ArrayList<Solution>() {
 							{
-						
+								add(new Solution("\"Система  112\"", context
+										.getString(R.string.s6)));
 								add(new Solution(
-										"Система конвергентного биллинга и управления услугами – FORIS",
-										context.getString(R.string.s2)));
+										"Биометрический контроль доступа",
+										context.getString(R.string.s7)));
+								add(new Solution(
+										"Пространственное моделирование событий",
+										context.getString(R.string.s8)));
+								add(new Solution(
+										"Управление процессами и персоналом ",
+										context.getString(R.string.s9)));
 							}
 
 						}));
-				// add(new
-				// Solution("Универсальная карта участника","Решение представляет собой семейство продуктов, обеспечивающих тарификацию различных видов услуг и биллинг, управление услугами абонентов бонусными кампаниями и т.д. Решение включает в себя более 20 систем с широчайшей функциональностью. Например, интегрировать на единой карте болельщика различные услуги: оплата транспортных расходов, входных билетов на домашние матчи, скидки и другие привилегии для держателей карты. Решение также может быть использовано в телекоммуникационной отрасли, ТЭК, госсекторе, на транспорте и т.д.","","",""));
-				// add(new
-				// Solution("244","","3424 dsfsdfdsf\ndfdsfsdf","cfgdg",""));
+
+				add(new SolutionGroup("Сервисы для участников",
+						new ArrayList<Solution>() {
+							{
+								add(new Solution("Ncloud", context
+										.getString(R.string.s10)));
+								add(new Solution(
+										"Универсальная карта участника",
+										context.getString(R.string.s11)));
+								add(new Solution(
+										"Портал общественной безопасности",
+										context.getString(R.string.s12)));
+								add(new Solution(
+										"Система анализа статистических данных",
+										context.getString(R.string.s13)));
+								add(new Solution(
+										"Сервисы облачной видеоаналитики",
+										context.getString(R.string.s14)));
+								add(new Solution(
+										"Удаленный мониторинг автопарка",
+										context.getString(R.string.s15)));
+							}
+
+						}));
 			}
 		};
 	}
 }
-
-/*
- * ("Система анализа больших объемов данных Big Data",
- * "Информационно-аналитическая платформа"+
- * " решает задачи эффективного хранения"+
- * " и обработки неограниченных объёмов"+
- * " неструктурированных или слабосвязанных"+
- * " данных. Демонстрация работы через"+
- * " пользовательский интерфейс BI-приложения от Qlickview."
- * ,context.getString(R.
- * string.s1),"Красилов Дмитрий,\n руководитель центра решений"+
- * " систем управления данными «Энвижн Груп»","DKrasilov@nvg.ru"));
- */

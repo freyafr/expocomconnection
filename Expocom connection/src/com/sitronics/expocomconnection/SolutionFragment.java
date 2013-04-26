@@ -15,7 +15,7 @@ import android.widget.*;
 import android.content.*;
 
 public class SolutionFragment extends Fragment implements
-		AdapterView.OnItemClickListener {
+		View.OnClickListener {
 
 	public void onItemClick(AdapterView<?> p1, View view, int position,
 			int parentPosition, long p4) {
@@ -50,35 +50,30 @@ public class SolutionFragment extends Fragment implements
 			final TextView solutionGroupCode = (TextView) solutionView
 					.findViewById(R.id.solution_parent_code);
 			solutionGroupCode.setText(Integer.valueOf(position).toString());
-			final ListView listView = (ListView) solutionView
-
-			.findViewById(R.id.solution_list_items);
-			listView.setOnItemClickListener(this);
-
-			listView.setAdapter(new ArrayAdapter<Solution>(getActivity(),
-					R.layout.solution_item, group.getSolutions())
-
+			final LinearLayout listView = (LinearLayout) solutionView.findViewById(R.id.solution_list_items);			
+			
+			int lPosition = 0;
+			for (Solution solution : group.getSolutions())
 			{
-				@Override
-				public View getView(int lPosition, View convertView,
-						ViewGroup parent) {
-					final Solution solution = getItem(lPosition);
+				View solutionItemView = inflater.inflate(R.layout.solution_item, null);					
 
-					View solutionItemView = LayoutInflater.from(getContext())
-							.inflate(R.layout.solution_item, null);					
+				final TextView code = (TextView) solutionItemView
+						.findViewById(R.id.solution_code);
 
-					final TextView code = (TextView) solutionItemView
-							.findViewById(R.id.solution_code);
+				code.setText(Integer.valueOf(lPosition).toString());
 
-					code.setText(Integer.valueOf(lPosition).toString());
+				final TextView name = (TextView) solutionItemView
+						.findViewById(R.id.solution_name);
 
-					final TextView name = (TextView) solutionItemView
-							.findViewById(R.id.solution_name);
-
-					name.setText(solution.getName());
-					return solutionItemView;
-				}
-			});
+				name.setText(solution.getName());
+				
+				listView.addView(solutionItemView);
+				
+				lPosition++;
+				
+				solutionItemView.setOnClickListener(this);
+			}
+			
 
 			layout.addView(solutionView);
 			position++;
@@ -86,65 +81,15 @@ public class SolutionFragment extends Fragment implements
 		return view;
 	}
 
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-
-		/*
-		 * mAdapter = new ArrayAdapter<SolutionGroup>(getActivity(),
-		 * R.layout.solution_group_item,
-		 * SolutionProvider.getSolutions(getActivity())) {
-		 * 
-		 * @Override public View getView(int position, View convertView,
-		 * ViewGroup parent) { final SolutionGroup group = getItem(position);
-		 * 
-		 * final View solutionView = getActivity().getLayoutInflater()
-		 * .inflate(R.layout.solution_group_item, null);
-		 * 
-		 * final TextView solutionNameView = (TextView) solutionView
-		 * .findViewById(R.id.group_item_title);
-		 * solutionNameView.setText(group.getName());
-		 * 
-		 * final ListView linearLayout = (ListView) solutionView
-		 * .findViewById(R.id.solution_list_items);
-		 * 
-		 * 
-		 * linearLayout.setAdapter(new ArrayAdapter<Solution>(getActivity(),
-		 * R.layout.solution_item, group.getSolutions())
-		 * 
-		 * {
-		 * 
-		 * @Override public View getView(int lPosition, View convertView,
-		 * ViewGroup parent) { final Solution solution = getItem(lPosition);
-		 * 
-		 * View solutionItemView = LayoutInflater.from(getContext())
-		 * .inflate(R.layout.solution_item, null);
-		 * 
-		 * final TextView parentCode = (TextView) solutionItemView
-		 * .findViewById(R.id.solution_parent_code);
-		 * 
-		 * // parentCode.setText(Integer.valueOf(position).toString());
-		 * 
-		 * final TextView code = (TextView) solutionItemView
-		 * .findViewById(R.id.solution_code);
-		 * 
-		 * code.setText(Integer.valueOf(lPosition).toString());
-		 * 
-		 * final TextView name = (TextView) solutionItemView
-		 * .findViewById(R.id.solution_name);
-		 * 
-		 * name.setText(solution.getName()); return solutionItemView; } });
-		 * 
-		 * return solutionView; } };
-		 */
-	}
-
 	@Override
-	public void onItemClick(AdapterView<?> l, View v, int position, long id) {
-		TextView parentCode = (TextView) ((View) v.getParent().getParent()
-				.getParent().getParent())
-				.findViewById(R.id.solution_parent_code);
+	public void onClick(View view) {
+		
+		TextView parentCode = (TextView) ((View) view.getParent().getParent()).findViewById(R.id.solution_parent_code);
+		TextView code = (TextView) view.findViewById(R.id.solution_code);
+		int position = Integer.parseInt(code.getText().toString());
 		int parentPosition = Integer.parseInt(parentCode.getText().toString());
-		onItemClick(l, v, position, parentPosition, id);
+		
+		onItemClick(null,view, position,parentPosition, 0);		
 	}
 
 }

@@ -241,8 +241,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 		int position = Integer.parseInt(code.getText().toString());
 		int parentPosition = Integer.parseInt(parentCode.getText().toString());
 		
-		fragment.onItemClick(null,((View) view.getParent()
-				.getParent().getParent().getParent()), position,parentPosition, 0);
+		fragment.onItemClick(null,view, position,parentPosition, 0);
 	}
 
 }
