@@ -62,15 +62,6 @@ public class MainActivity extends SherlockFragmentActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		getWindow().setFlags(
-				WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
-				WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-
-		getSupportActionBar().setDisplayShowTitleEnabled(false);
-		getSupportActionBar().setDisplayUseLogoEnabled(true);
-
-		getSupportActionBar().setIcon(R.drawable.logo);
-
 		handler = new Handler();
 
 		setContentView(R.layout.activity_main);
