@@ -6,17 +6,17 @@
     android:paddingLeft="25dp"
     android:paddingRight="25dp"
     android:paddingTop="40dp" >
-	
-	<TextView
-		android:id="@+id/solution_parent_code"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/solution_parent_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/group_item_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"      
+        android:layout_height="wrap_content"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text=""
@@ -34,7 +34,23 @@
         android:id="@+id/solution_list_items"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
-        android:orientation="vertical" />
+        android:orientation="vertical"
+        android:scrollbars="none" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:linksClickable="true"
+        android:autoLink="web"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:text="@string/link_to_site"
+        android:textColor="#000"
+        android:layout_gravity="right"
+        android:gravity="right"
+         >
+    </TextView>
 
 </LinearLayout>
