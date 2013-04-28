@@ -8,6 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
+		
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" >
+			
 
         <ImageView
             android:id="@+id/solution_image"
@@ -19,15 +24,20 @@
         <TextView
             android:id="@+id/solution_name"
             android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:background="#C4C4C4"
+			android:layout_alignBottom="@+id/solution_image"
+			android:layout_alignLeft="@+id/solution_image"
+			android:layout_alignRight="@+id/solution_image"
+	
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:background="#bbC4C4C4"
             android:paddingBottom="5dp"
             android:paddingLeft="25dp"
             android:paddingRight="20dp"
             android:paddingTop="5dp"
             android:textColor="#000"
             android:textSize="25sp" />
+		</RelativeLayout>
 
         <TextView
             android:id="@+id/solution_descr"
