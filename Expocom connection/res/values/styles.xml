@@ -2,48 +2,55 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="Theme.Sherlock">
-       <!--   <item name="android:tabWidgetStyle">@style/LightTabWidget</item>-->
-       <item name="actionBarStyle">@style/YellowActionBar</item>
-		<!--  <item name="android:windowNoTitle">true</item>-->
+
+        <!-- <item name="android:tabWidgetStyle">@style/LightTabWidget</item> -->
+        <item name="actionBarStyle">@style/YellowActionBar</item>
+   <!--      <item name="android:windowNoTitle">true</item> -->
     </style>
-    
-    <style name="YellowActionBar" parent="Theme.Sherlock">
-		<item name ="background">#fcaf17</item>								   
-	  	<item name="titleTextStyle">@style/noTitleText</item>
-		<item name="subtitleTextStyle">@style/noTitleText</item>
-	</style>
-	
-	
+
+    <style name="YellowActionBar" parent="Widget.Sherlock.Light.ActionBar">
+        <item name="background">#fcaf17</item>
+        <item name="titleTextStyle">@style/noTitleText</item>
+        <item name="subtitleTextStyle">@style/noTitleText</item> 
+    </style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-	<style name="LightTabWidget" parent="@android:style/Widget.TabWidget">
-	    <!-- set textColor to red, so you can verify that it applied. -->
-	   <item name="android:textColor">#fff</item>
-	   <item name="android:capitalize">characters</item>
-	   <item name="android:textSize">7pt</item>
+    
+    <style name="noTitleText">
+		<item name="android:textSize">0pt</item>
+		<item name ="android:textColor">#fcaf17</item>
 	</style>
-	<style name="AppBaseThemeLight" parent="android:style/Widget.TabWidget">
-        <!-- API 14 theme customizations can go here. -->
-		<item name="android:textColor">@color/text_color</item>
-		<item name="android:capitalize">characters</item>
-		<item name="android:textSize">9pt</item>
-		<item name="android:background">#fff</item>
 
+    <style name="LightTabWidget" parent="@android:style/Widget.TabWidget">
+
+        <!-- set textColor to red, so you can verify that it applied. -->
+        <item name="android:textColor">#fff</item>
+        <item name="android:capitalize">characters</item>
+        <item name="android:textSize">7pt</item>
     </style>
-	
-	<style name="splashScreenTheme" parent="Theme.Sherlock">
-		<item name="android:windowBackground">@drawable/splash</item>
-		<item name="windowActionBar">false</item>
-	</style>
-	
-	<style name="MainLightTheme" parent="Theme.Sherlock.Light">
-		<item name="windowActionBar">true</item>		
-		
-	</style>
+
+    <style name="AppBaseThemeLight" parent="android:style/Widget.TabWidget">
+
+        <!-- API 14 theme customizations can go here. -->
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:capitalize">characters</item>
+        <item name="android:textSize">9pt</item>
+        <item name="android:background">#fff</item>
+    </style>
+
+    <style name="splashScreenTheme" parent="Theme.Sherlock">
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="windowActionBar">false</item> 
+    </style>
+
+    <style name="MainLightTheme" parent="Theme.Sherlock.Light">
+        <item name="windowActionBar">true</item>
+    </style>
+
 </resources>
