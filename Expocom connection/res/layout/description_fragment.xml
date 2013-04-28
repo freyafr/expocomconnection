@@ -43,7 +43,7 @@
                     android:layout_marginBottom="5dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/home_image" />
+                    android:src="@drawable/home_image_2" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -51,7 +51,14 @@
                     android:layout_marginBottom="5dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/home_image_1" />
+                    android:src="@drawable/home_image_3" />
+                 <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/home_image_4" />
             </ViewFlipper>
 
             <TextView
