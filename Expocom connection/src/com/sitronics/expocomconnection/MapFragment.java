@@ -19,7 +19,8 @@ public class MapFragment extends Fragment {
 			public void onClick(View v) {
 				Intent descrIntent = new Intent(getActivity(),
 						MapDetailsFragment.class);
-				descrIntent.putExtra("image_source", R.drawable.map);
+				descrIntent.putExtra("image_source", R.drawable.map1);
+				descrIntent.putExtra("map_title_text", "1 ЭТАЖ");
 				startActivity(descrIntent);
 			}
 		});
@@ -30,6 +31,7 @@ public class MapFragment extends Fragment {
 				Intent descrIntent = new Intent(getActivity(),
 						MapDetailsFragment.class);
 				descrIntent.putExtra("image_source", R.drawable.map2);
+				descrIntent.putExtra("map_title_text", "2 ЭТАЖ");
 				startActivity(descrIntent);
 			}
 		});

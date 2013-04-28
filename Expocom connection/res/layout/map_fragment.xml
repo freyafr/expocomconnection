@@ -18,7 +18,7 @@
                 android:layout_height="wrap_content"
                 android:clickable="true" >
 
-                <ImageView
+                <com.sitronics.expocomconnection.ResizableImageView
                     android:id="@+id/firststage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -26,21 +26,18 @@
                     android:adjustViewBounds="true"
                     android:contentDescription="1 этаж"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/stage" />
+                    android:src="@drawable/minimap1" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/firststage"
                     android:layout_alignLeft="@+id/firststage"
                     android:layout_alignRight="@+id/firststage"
-                    android:layout_alignTop="@+id/firststage"
-                    android:layout_margin="1dp"
+                    android:layout_centerVertical="true"
                     android:gravity="center"
+                    android:textColor="#000"
                     android:text="1 этаж"
-                    android:textColor="#000000"
-                    android:textStyle="bold" />
-
+                    android:textSize="25sp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -50,7 +47,7 @@
                 android:clickable="true"
                 android:paddingTop="5dp" >
 
-                <ImageView
+                <com.sitronics.expocomconnection.ResizableImageView
                     android:id="@+id/secondstage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -58,22 +55,18 @@
                     android:adjustViewBounds="true"
                     android:contentDescription="2 этаж"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/stage" />
+                    android:src="@drawable/minimap2" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/secondstage"
                     android:layout_alignLeft="@+id/secondstage"
                     android:layout_alignRight="@+id/secondstage"
-                    android:layout_alignTop="@+id/secondstage"
-                    android:layout_margin="1dp"
-                    android:clickable="false"
+                    android:layout_centerVertical="true"
                     android:gravity="center"
+                    android:textColor="#000"
                     android:text="2 этаж"
-                    android:textColor="#000000"
-                    android:textStyle="bold" />
-
+                    android:textSize="25sp" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
